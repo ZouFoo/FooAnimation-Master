@@ -8,16 +8,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+let SCREENWIDTH = UIScreen.main.bounds.width
 
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
+
+    lazy var table: UITableView = {
+        let _table = UITableView(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: SCREENWIDTH) , style: .plain)
+        
+        _table.delegate = self
+        _table.dataSource = self
+        
+        return _table
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        view.addSubview(table)
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        
+        cell?.textLabel?.text = "indexPath = \(indexPath.row)"
+        return cell!
     }
 
 
