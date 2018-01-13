@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-Creating a new branch is quick.
-=======
+
 
 
 Gitflow工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。
@@ -144,7 +142,7 @@ git branch -d issue-#001
 « 功能分支工作流　　　　Forking工作流 »
 
 
->>>>>>> develop
+
 
 
 
