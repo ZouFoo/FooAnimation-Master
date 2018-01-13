@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
     lazy var table: UITableView = {
-        let _table = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.width))
+        let _table = UITableView(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: SCREENWIDTH) , style: .plain)
         
         _table.delegate = self
         _table.dataSource = self
@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.addSubview(table)
     
     }
 
@@ -34,12 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         
-        cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
         
-        cell.textLabel?.text = "indexPath = \(indexPath.row)"
-        return cell
+        cell?.textLabel?.text = "indexPath = \(indexPath.row)"
+        return cell!
     }
 
 
