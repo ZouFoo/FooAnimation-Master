@@ -1,0 +1,6 @@
+framework module Pods_FooAnimation_Master {
+  umbrella header "Pods-FooAnimation-Master-umbrella.h"
+
+  export *
+  module * { export * }
+}
