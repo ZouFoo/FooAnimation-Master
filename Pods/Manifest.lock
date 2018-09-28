@@ -1,16 +1,20 @@
 PODS:
+  - BarrageRenderer (2.1.0)
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
+  - BarrageRenderer
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - BarrageRenderer
     - SnapKit
 
 SPEC CHECKSUMS:
+  BarrageRenderer: 00e5f8081d81f29c1fc12712ddf2f875bd9c6f77
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: 5d22272dc64bcdbce80e8355c3b1f622d6c8bba6
+PODFILE CHECKSUM: e382130fe8a7ca6ff1215635217c2383b1670806
 
 COCOAPODS: 1.5.3

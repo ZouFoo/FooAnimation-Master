@@ -14,6 +14,10 @@
 		064F4829215C7D77003D175A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064F4827215C7D77003D175A /* LaunchScreen.storyboard */; };
 		064F4832215C8762003D175A /* 208.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 064F4831215C8762003D175A /* 208.MP4 */; };
 		064F4835215C8AEB003D175A /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F4834215C8AEB003D175A /* ConfigHelper.swift */; };
+		064F483B215CEBD4003D175A /* NSSafeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 064F4839215CEBD4003D175A /* NSSafeObject.m */; };
+		06670A97215DCD9700CF400C /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670A96215DCD9700CF400C /* HomeCollectionViewCell.swift */; };
+		06670AA6215DE38C00CF400C /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670AA5215DE38C00CF400C /* EmitterViewController.swift */; };
+		06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670AA7215DE56300CF400C /* ImageHelper.swift */; };
 		4D92B81C0AAEDAD66B3B0CA7 /* Pods_FooAnimation_Master.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76C9D43BB6F277EA5D56B61 /* Pods_FooAnimation_Master.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,12 @@
 		064F482A215C7D77003D175A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		064F4831215C8762003D175A /* 208.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 208.MP4; sourceTree = "<group>"; };
 		064F4834215C8AEB003D175A /* ConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigHelper.swift; sourceTree = "<group>"; };
+		064F4839215CEBD4003D175A /* NSSafeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSafeObject.m; sourceTree = "<group>"; };
+		064F483A215CEBD4003D175A /* NSSafeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSafeObject.h; sourceTree = "<group>"; };
+		064F483C215CEC3E003D175A /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		06670A96215DCD9700CF400C /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		06670AA5215DE38C00CF400C /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
+		06670AA7215DE56300CF400C /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		11E598B203A0FFE757BA021E /* Pods-FooAnimation-Master.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooAnimation-Master.release.xcconfig"; path = "Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master.release.xcconfig"; sourceTree = "<group>"; };
 		C76C9D43BB6F277EA5D56B61 /* Pods_FooAnimation_Master.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooAnimation_Master.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D498AFA597BF5358F1181A8F /* Pods-FooAnimation-Master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooAnimation-Master.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,9 +76,12 @@
 			isa = PBXGroup;
 			children = (
 				064F4833215C8ACC003D175A /* Helper */,
+				064F4837215CEBA6003D175A /* Frameworks */,
 				064F4830215C82FF003D175A /* Source */,
 				064F481E215C7D76003D175A /* AppDelegate.swift */,
+				06670AA4215DE2BE00CF400C /* Animations */,
 				064F4820215C7D76003D175A /* ViewController.swift */,
+				06670A96215DCD9700CF400C /* HomeCollectionViewCell.swift */,
 				064F4822215C7D76003D175A /* Main.storyboard */,
 				064F4825215C7D77003D175A /* Assets.xcassets */,
 				064F4827215C7D77003D175A /* LaunchScreen.storyboard */,
@@ -89,8 +102,35 @@
 			isa = PBXGroup;
 			children = (
 				064F4834215C8AEB003D175A /* ConfigHelper.swift */,
+				064F483C215CEC3E003D175A /* BridgeHeader.h */,
+				06670AA7215DE56300CF400C /* ImageHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		064F4837215CEBA6003D175A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				064F4838215CEBD4003D175A /* SafeObject */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		064F4838215CEBD4003D175A /* SafeObject */ = {
+			isa = PBXGroup;
+			children = (
+				064F4839215CEBD4003D175A /* NSSafeObject.m */,
+				064F483A215CEBD4003D175A /* NSSafeObject.h */,
+			);
+			path = SafeObject;
+			sourceTree = "<group>";
+		};
+		06670AA4215DE2BE00CF400C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				06670AA5215DE38C00CF400C /* EmitterViewController.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		42A7F424EF73970654727115 /* Pods */ = {
@@ -205,10 +245,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BarrageRenderer/BarrageRenderer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarrageRenderer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,9 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06670A97215DCD9700CF400C /* HomeCollectionViewCell.swift in Sources */,
+				06670AA6215DE38C00CF400C /* EmitterViewController.swift in Sources */,
+				064F483B215CEBD4003D175A /* NSSafeObject.m in Sources */,
 				064F4821215C7D76003D175A /* ViewController.swift in Sources */,
 				064F4835215C8AEB003D175A /* ConfigHelper.swift in Sources */,
 				064F481F215C7D76003D175A /* AppDelegate.swift in Sources */,
+				06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +428,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.papitube.FooAnimation-Master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FooAnimation-Master/Helper/BridgeHeader.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -402,6 +449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.papitube.FooAnimation-Master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FooAnimation-Master/Helper/BridgeHeader.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
