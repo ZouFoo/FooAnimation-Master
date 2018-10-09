@@ -196,7 +196,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.present(EmitterViewController(), animated: true, completion: nil)
+//        self.present(EmitterViewController(), animated: true, completion: nil)
+        self.present(CalendarViewController(), animated: true, completion: nil)
     }
     
 }

@@ -6,7 +6,7 @@ inhibit_all_warnings!
 target 'FooAnimation-Master' do
   pod 'SnapKit'
   pod 'BarrageRenderer'
-  
+  pod 'JTAppleCalendar'
 end
 
 
