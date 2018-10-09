@@ -8,6 +8,8 @@
 
 import UIKit
 import JTAppleCalendar
+import FSCalendar
+
 
 class CalendarViewController: UIViewController {
 
@@ -21,7 +23,7 @@ class CalendarViewController: UIViewController {
     
     
     lazy var yearLabel: UILabel = {
-        let _label = UILabel(frame: CGRect(x: 10, y: 44, width: 100, height: 20))
+        let _label = UILabel(frame: CGRect(x: 10, y: 108, width: 100, height: 20))
         _label.font = UIFont.systemFont(ofSize: 16)
         _label.textColor = UIColor(colorWithHexValue: 0x77618b)
         _label.text = "year"
@@ -29,7 +31,7 @@ class CalendarViewController: UIViewController {
     }()
     
     lazy var monthLabel: UILabel = {
-        let _label = UILabel(frame: CGRect(x: 10, y: 64, width: 200, height: 40))
+        let _label = UILabel(frame: CGRect(x: 10, y: 128, width: 200, height: 40))
         _label.font = UIFont.systemFont(ofSize: 22)
         _label.textColor = UIColor.white
         _label.text = "month"
@@ -38,7 +40,7 @@ class CalendarViewController: UIViewController {
     
     lazy var calendarView: JTAppleCalendarView = {
         
-        let calendarView = JTAppleCalendarView(frame: CGRect(x: 0, y: 104, width: Int(SCREEN_WIDTH), height: 280 ))
+        let calendarView = JTAppleCalendarView(frame: CGRect(x: 0, y: 168, width: Int(SCREEN_WIDTH), height: 280 ))
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.register(CustomCell.self, forCellWithReuseIdentifier:"CustomCell")
@@ -58,6 +60,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "日历calendar"
         view.addSubview(calendarView)
         calendarView.visibleDates { visibleDates in
             let date = visibleDates.monthDates.first!.date
@@ -161,4 +164,34 @@ extension UIColor {
             alpha: alpha
         )
     }
+}
+
+
+
+//    FSCalendar   =============+++++++++===========++++++++++===========
+
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
+    
+    override func loadView() {
+        // 初始化View
+        
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = .white
+        self.view = view
+        
+        
+        let fsCalendar = FSCalendar(frame: CGRect(x: 0, y: 450, width: view.frame.size.width, height: 300))
+//        fsCalendar.backgroundColor = .orange
+        fsCalendar.delegate = self
+        fsCalendar.dataSource = self
+        fsCalendar.appearance.headerMinimumDissolvedAlpha = 0;
+        
+        self.view.addSubview(fsCalendar)
+        
+        
+        
+        
+    }
+    
 }

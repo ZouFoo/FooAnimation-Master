@@ -12,6 +12,9 @@ class EmitterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Emitter粒子动画"
+
         view.backgroundColor = .white
         let rect = CGRect(x: 0.0, y: -70.0, width: view.bounds.width,
                           height: 50.0)
@@ -30,7 +33,7 @@ class EmitterViewController: UIViewController {
         let emitterCell = CAEmitterCell()
         emitterCell.contents = UIImage(named: "xh")!.scaleImageToWidth(30).cgImage
         emitterCell.birthRate = 120  //每秒产生120个粒子
-        emitterCell.lifetime = 4    //存活1秒
+        emitterCell.lifetime = 4    //存活4秒
         emitterCell.lifetimeRange = 3.0
         
         emitter.emitterCells = [emitterCell]  //这里可以设置多种粒子 我们以一种为粒子

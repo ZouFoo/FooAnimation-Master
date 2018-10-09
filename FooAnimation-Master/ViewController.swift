@@ -58,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     lazy var renderer: BarrageRenderer = {
         let renderer = BarrageRenderer.init()
-        renderer.canvasMargin = UIEdgeInsets(top: 44, left: 0, bottom: SCREEN_HEIGHT -  SCREEN_WIDTH/1.78 + 44, right: 10)
+        renderer.canvasMargin = UIEdgeInsets(top: 0, left: 0, bottom: SCREEN_HEIGHT -  SCREEN_WIDTH/1.78 - 44 - 64, right: 10)
         
         initDanmuText()
         return renderer
@@ -77,7 +77,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         layout.minimumLineSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: Int(SCREEN_WIDTH/1.78), width: Int(SCREEN_WIDTH), height: Int(SCREEN_HEIGHT) - Int(SCREEN_WIDTH/1.78)), collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: Int(SCREEN_WIDTH/1.78), width: Int(SCREEN_WIDTH), height: Int(SCREEN_HEIGHT) - Int(SCREEN_WIDTH/1.78) - 64 - 44), collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier:"HomeCollectionViewCell")
@@ -90,15 +90,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     
     func initdatas() {
-        animations += ["s1","s2","s3","s4","s5","s6"]
+        animations += ["日历calendar","Emitter粒子动画","s3","s4","s5","s6"]
         animationImages += ["s1","s2","s3","s4","s5","s6"]
     }
     
     
     //MARK: - Life
+    override func loadView() {
+        super.loadView()
+        if self.responds(to: #selector(getter: UIViewController.edgesForExtendedLayout)) {
+            self.edgesForExtendedLayout = []
+        }
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Foo_Animations"
         self.view.layer.addSublayer(avPlayer)
         //开始播放
         player.play()
@@ -143,7 +151,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
  
     
-
     
     @objc func tapPlayButotn() {
         if isPlay == true{
@@ -162,8 +169,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 rendererTimer!.fireDate = Date.distantPast
             }
             
-
-
         }
         
     }
@@ -173,9 +178,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         player.seek(to: CMTimeMake(value: 0, timescale: 1))
         player.play()
     }
-    
-    
-    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -196,8 +198,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        self.present(EmitterViewController(), animated: true, completion: nil)
-        self.present(CalendarViewController(), animated: true, completion: nil)
+
+        switch indexPath.row {
+        case 0:
+            self.navigationController?.pushViewController(CalendarViewController(), animated: true)
+        case 1:
+            self.navigationController?.pushViewController(EmitterViewController(), animated: true)
+
+        default: break
+            
+        }
     }
     
 }

@@ -7,6 +7,8 @@ target 'FooAnimation-Master' do
   pod 'SnapKit'
   pod 'BarrageRenderer'
   pod 'JTAppleCalendar'
+  pod 'FSCalendar'
+
 end
 
 
