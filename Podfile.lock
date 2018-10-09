@@ -1,20 +1,24 @@
 PODS:
   - BarrageRenderer (2.1.0)
+  - JTAppleCalendar (7.1.6)
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
   - BarrageRenderer
+  - JTAppleCalendar
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BarrageRenderer
+    - JTAppleCalendar
     - SnapKit
 
 SPEC CHECKSUMS:
   BarrageRenderer: 00e5f8081d81f29c1fc12712ddf2f875bd9c6f77
+  JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: e382130fe8a7ca6ff1215635217c2383b1670806
+PODFILE CHECKSUM: 0c50691edbf11e421e4aaff1ee689c94cf1d19a7
 
 COCOAPODS: 1.5.3
