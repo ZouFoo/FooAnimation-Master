@@ -106,7 +106,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Foo_Animations"
+//        self.navigationItem.title = "Foo_Animations"
         self.view.layer.addSublayer(avPlayer)
         //开始播放
         player.play()

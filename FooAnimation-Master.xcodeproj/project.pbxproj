@@ -20,6 +20,9 @@
 		06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670AA7215DE56300CF400C /* ImageHelper.swift */; };
 		06735C4F216AF5B500C90A5E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06735C4E216AF5B500C90A5E /* CalendarViewController.swift */; };
 		06735C54216B2CA800C90A5E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06735C53216B2CA800C90A5E /* CustomCell.swift */; };
+		06E94D6421758F870097B9DC /* HoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E94D6321758F870097B9DC /* HoldViewController.swift */; };
+		06E94D6621758F960097B9DC /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E94D6521758F960097B9DC /* MineViewController.swift */; };
+		06E94D68217591B80097B9DC /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E94D67217591B80097B9DC /* RootTabBarController.swift */; };
 		4D92B81C0AAEDAD66B3B0CA7 /* Pods_FooAnimation_Master.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76C9D43BB6F277EA5D56B61 /* Pods_FooAnimation_Master.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		06670AA7215DE56300CF400C /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		06735C4E216AF5B500C90A5E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		06735C53216B2CA800C90A5E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		06E94D6321758F870097B9DC /* HoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldViewController.swift; sourceTree = "<group>"; };
+		06E94D6521758F960097B9DC /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		06E94D67217591B80097B9DC /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		11E598B203A0FFE757BA021E /* Pods-FooAnimation-Master.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooAnimation-Master.release.xcconfig"; path = "Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master.release.xcconfig"; sourceTree = "<group>"; };
 		C76C9D43BB6F277EA5D56B61 /* Pods_FooAnimation_Master.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooAnimation_Master.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D498AFA597BF5358F1181A8F /* Pods-FooAnimation-Master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooAnimation-Master.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,7 +91,10 @@
 				06670AA4215DE2BE00CF400C /* Animations */,
 				06735C50216B2A2300C90A5E /* Calendar */,
 				064F481E215C7D76003D175A /* AppDelegate.swift */,
+				06E94D67217591B80097B9DC /* RootTabBarController.swift */,
 				064F4820215C7D76003D175A /* ViewController.swift */,
+				06E94D6321758F870097B9DC /* HoldViewController.swift */,
+				06E94D6521758F960097B9DC /* MineViewController.swift */,
 				06670A96215DCD9700CF400C /* HomeCollectionViewCell.swift */,
 				064F4822215C7D76003D175A /* Main.storyboard */,
 				064F4825215C7D77003D175A /* Assets.xcassets */,
@@ -263,6 +272,7 @@
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -270,6 +280,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -284,6 +295,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				06735C4F216AF5B500C90A5E /* CalendarViewController.swift in Sources */,
+				06E94D68217591B80097B9DC /* RootTabBarController.swift in Sources */,
+				06E94D6621758F960097B9DC /* MineViewController.swift in Sources */,
 				06670A97215DCD9700CF400C /* HomeCollectionViewCell.swift in Sources */,
 				06670AA6215DE38C00CF400C /* EmitterViewController.swift in Sources */,
 				064F483B215CEBD4003D175A /* NSSafeObject.m in Sources */,
@@ -292,6 +305,7 @@
 				064F4835215C8AEB003D175A /* ConfigHelper.swift in Sources */,
 				064F481F215C7D76003D175A /* AppDelegate.swift in Sources */,
 				06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */,
+				06E94D6421758F870097B9DC /* HoldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

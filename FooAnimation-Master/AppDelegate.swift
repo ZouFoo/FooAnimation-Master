@@ -19,8 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         
-        let mainNav = UINavigationController(rootViewController: ViewController())
-        self.window?.rootViewController = mainNav
+        let rootTabbar = RootTabBarController()
+        rootTabbar.delegate = self
+        
+//        let mainNav = UINavigationController(rootViewController: ViewController())
+//        self.window?.rootViewController = mainNav
+        self.window?.rootViewController = rootTabbar
         self.window?.makeKeyAndVisible()
         
         
@@ -55,3 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        return !viewController.isEqual(tabBarController.viewControllers![1])
+    }
+}
