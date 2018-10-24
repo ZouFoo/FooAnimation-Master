@@ -1,32 +1,66 @@
 PODS:
   - BarrageRenderer (2.1.0)
   - FSCalendar (2.8.0)
+  - IQKeyboardManagerSwift (6.2.0)
   - JTAppleCalendar (7.1.6)
+  - JXPhotoBrowser (2.0.7):
+    - JXPhotoBrowser/Kingfisher (= 2.0.7)
+  - JXPhotoBrowser/Core (2.0.7)
+  - JXPhotoBrowser/Kingfisher (2.0.7):
+    - JXPhotoBrowser/Core
+    - Kingfisher
+  - Kingfisher (4.10.0)
   - pop (1.0.12)
+  - RSKImageCropper (2.2.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SKPhotoBrowser (6.0.0)
   - SnapKit (4.0.1)
+  - TZImagePickerController (3.0.9)
 
 DEPENDENCIES:
   - BarrageRenderer
   - FSCalendar
+  - IQKeyboardManagerSwift
   - JTAppleCalendar
+  - JXPhotoBrowser
   - pop
+  - RSKImageCropper
+  - SDWebImage
+  - SKPhotoBrowser
   - SnapKit
+  - TZImagePickerController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BarrageRenderer
     - FSCalendar
+    - IQKeyboardManagerSwift
     - JTAppleCalendar
+    - JXPhotoBrowser
+    - Kingfisher
     - pop
+    - RSKImageCropper
+    - SDWebImage
+    - SKPhotoBrowser
     - SnapKit
+    - TZImagePickerController
 
 SPEC CHECKSUMS:
   BarrageRenderer: 00e5f8081d81f29c1fc12712ddf2f875bd9c6f77
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
+  JXPhotoBrowser: 57eaf15af795274b66dd90b10fd460aefbb6c13d
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  RSKImageCropper: 98296ad26b41753f796b6898d015509598f13d97
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SKPhotoBrowser: 76eb862685761707b5745fde7762757966565e07
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  TZImagePickerController: ea3e906af8caa7088f612ad673feb73cc6aa6bfc
 
-PODFILE CHECKSUM: c35b37625b49c31b3cda6f2be4b9d0c7c10e01b6
+PODFILE CHECKSUM: 112e4b3e55a8fe233ee8b8d22d25f49b088ed472
 
 COCOAPODS: 1.5.3

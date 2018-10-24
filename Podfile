@@ -9,6 +9,13 @@ target 'FooAnimation-Master' do
   pod 'JTAppleCalendar'
   pod 'FSCalendar'
   pod 'pop'
+  pod 'IQKeyboardManagerSwift'
+  pod 'TZImagePickerController'
+  pod 'SKPhotoBrowser'
+  pod 'RSKImageCropper'
+  pod 'SDWebImage'
+  pod 'JXPhotoBrowser'
+
 
 end
 

@@ -20,6 +20,7 @@
 		06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670AA7215DE56300CF400C /* ImageHelper.swift */; };
 		06735C4F216AF5B500C90A5E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06735C4E216AF5B500C90A5E /* CalendarViewController.swift */; };
 		06735C54216B2CA800C90A5E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06735C53216B2CA800C90A5E /* CustomCell.swift */; };
+		069AAE5E217DC48B00650E9F /* IQKeyboardManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069AAE5D217DC48B00650E9F /* IQKeyboardManagerViewController.swift */; };
 		06E94D6421758F870097B9DC /* HoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E94D6321758F870097B9DC /* HoldViewController.swift */; };
 		06E94D6621758F960097B9DC /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E94D6521758F960097B9DC /* MineViewController.swift */; };
 		06E94D68217591B80097B9DC /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E94D67217591B80097B9DC /* RootTabBarController.swift */; };
@@ -44,6 +45,7 @@
 		06670AA7215DE56300CF400C /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		06735C4E216AF5B500C90A5E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		06735C53216B2CA800C90A5E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		069AAE5D217DC48B00650E9F /* IQKeyboardManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQKeyboardManagerViewController.swift; sourceTree = "<group>"; };
 		06E94D6321758F870097B9DC /* HoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldViewController.swift; sourceTree = "<group>"; };
 		06E94D6521758F960097B9DC /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		06E94D67217591B80097B9DC /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
@@ -89,7 +91,6 @@
 				064F4837215CEBA6003D175A /* Frameworks */,
 				064F4830215C82FF003D175A /* Source */,
 				06670AA4215DE2BE00CF400C /* Animations */,
-				06735C50216B2A2300C90A5E /* Calendar */,
 				064F481E215C7D76003D175A /* AppDelegate.swift */,
 				06E94D67217591B80097B9DC /* RootTabBarController.swift */,
 				064F4820215C7D76003D175A /* ViewController.swift */,
@@ -144,6 +145,8 @@
 			children = (
 				06670AA5215DE38C00CF400C /* EmitterViewController.swift */,
 				06735C4E216AF5B500C90A5E /* CalendarViewController.swift */,
+				06735C50216B2A2300C90A5E /* Calendar */,
+				069AAE5D217DC48B00650E9F /* IQKeyboardManagerViewController.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -270,16 +273,30 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BarrageRenderer/BarrageRenderer.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarrageRenderer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +321,7 @@
 				064F4821215C7D76003D175A /* ViewController.swift in Sources */,
 				064F4835215C8AEB003D175A /* ConfigHelper.swift in Sources */,
 				064F481F215C7D76003D175A /* AppDelegate.swift in Sources */,
+				069AAE5E217DC48B00650E9F /* IQKeyboardManagerViewController.swift in Sources */,
 				06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */,
 				06E94D6421758F870097B9DC /* HoldViewController.swift in Sources */,
 			);
@@ -456,7 +474,10 @@
 				DEVELOPMENT_TEAM = YSNMQ26M8K;
 				INFOPLIST_FILE = "FooAnimation-Master/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.papitube.FooAnimation-Master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FooAnimation-Master/Helper/BridgeHeader.h";
@@ -474,7 +495,10 @@
 				DEVELOPMENT_TEAM = YSNMQ26M8K;
 				INFOPLIST_FILE = "FooAnimation-Master/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.papitube.FooAnimation-Master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FooAnimation-Master/Helper/BridgeHeader.h";

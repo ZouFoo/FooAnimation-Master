@@ -41,5 +41,7 @@
 	</array>
 	<key>NSCalendarsUsageDescription</key>
 	<string>给我用一下日历</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>给我用下相册</string>
 </dict>
 </plist>

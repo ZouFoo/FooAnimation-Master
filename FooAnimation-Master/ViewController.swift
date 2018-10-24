@@ -90,7 +90,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     
     func initdatas() {
-        animations += ["日历calendar","Emitter粒子动画","s3","s4","s5","s6"]
+        animations += ["日历calendar","Emitter粒子动画","IQKeyboardManager","s4","s5","s6"]
         animationImages += ["s1","s2","s3","s4","s5","s6"]
     }
     
@@ -204,7 +204,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.navigationController?.pushViewController(CalendarViewController(), animated: true)
         case 1:
             self.navigationController?.pushViewController(EmitterViewController(), animated: true)
-
+        case 2:
+            self.navigationController?.pushViewController(IQKeyboardManagerViewController(), animated: true)
         default: break
             
         }

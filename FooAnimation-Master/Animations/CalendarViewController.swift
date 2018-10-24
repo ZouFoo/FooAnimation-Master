@@ -54,7 +54,7 @@ class CalendarViewController: UIViewController {
         calendarView.showsVerticalScrollIndicator = false
         calendarView.scrollDirection = .horizontal
         calendarView.backgroundColor = UIColor(colorWithHexValue: 0x4a355b)
-        
+        calendarView.allowsDateCellStretching = false
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         
@@ -278,7 +278,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         fsCalendar.appearance.weekdayTextColor = .orange
         fsCalendar.appearance.titleDefaultColor = .white
         fsCalendar.appearance.headerTitleColor = .white
-
+        fsCalendar.firstWeekday = 2
 
         fsCalendar.headerHeight = 0
         
