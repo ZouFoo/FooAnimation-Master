@@ -273,14 +273,18 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
 //        fsCalendar.backgroundColor = .orange
         fsCalendar.delegate = self
         fsCalendar.dataSource = self
-        fsCalendar.appearance.headerMinimumDissolvedAlpha = 0;
-        fsCalendar.scope = .week
+        fsCalendar.appearance.headerMinimumDissolvedAlpha = 0
         fsCalendar.appearance.weekdayTextColor = .orange
         fsCalendar.appearance.titleDefaultColor = .white
         fsCalendar.appearance.headerTitleColor = .white
+        
+        //        fsCalendar.scope = .week
+
         fsCalendar.firstWeekday = 2
 
         fsCalendar.headerHeight = 0
+        
+        fsCalendar.placeholderType = .fillHeadTail
         
         self.view.addSubview(fsCalendar)
         

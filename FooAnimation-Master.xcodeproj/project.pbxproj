@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063E570521807F420057F71F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E570421807F420057F71F /* BaseViewController.swift */; };
+		063E5707218080A70057F71F /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E5706218080A70057F71F /* ScrollViewController.swift */; };
+		064B93C421882622002ECD05 /* EurekaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B93C321882622002ECD05 /* EurekaViewController.swift */; };
 		064F481F215C7D76003D175A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F481E215C7D76003D175A /* AppDelegate.swift */; };
 		064F4821215C7D76003D175A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F4820215C7D76003D175A /* ViewController.swift */; };
 		064F4824215C7D76003D175A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064F4822215C7D76003D175A /* Main.storyboard */; };
@@ -15,6 +18,10 @@
 		064F4832215C8762003D175A /* 208.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 064F4831215C8762003D175A /* 208.MP4 */; };
 		064F4835215C8AEB003D175A /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F4834215C8AEB003D175A /* ConfigHelper.swift */; };
 		064F483B215CEBD4003D175A /* NSSafeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 064F4839215CEBD4003D175A /* NSSafeObject.m */; };
+		0659F0C521903D43003AC0FD /* vue.html in Resources */ = {isa = PBXBuildFile; fileRef = 0659F0C421903D43003AC0FD /* vue.html */; };
+		0659F0C721903D5F003AC0FD /* HtmlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659F0C621903D5F003AC0FD /* HtmlViewController.swift */; };
+		0659F0CA219193CD003AC0FD /* test1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0659F0C9219193CD003AC0FD /* test1.pdf */; };
+		0659F0CC21919FE0003AC0FD /* WebPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659F0CB21919FE0003AC0FD /* WebPreviewViewController.swift */; };
 		06670A97215DCD9700CF400C /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670A96215DCD9700CF400C /* HomeCollectionViewCell.swift */; };
 		06670AA6215DE38C00CF400C /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670AA5215DE38C00CF400C /* EmitterViewController.swift */; };
 		06670AA8215DE56300CF400C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06670AA7215DE56300CF400C /* ImageHelper.swift */; };
@@ -28,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063E570421807F420057F71F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		063E5706218080A70057F71F /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		064B93C321882622002ECD05 /* EurekaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaViewController.swift; sourceTree = "<group>"; };
 		064F481B215C7D75003D175A /* FooAnimation-Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FooAnimation-Master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		064F481E215C7D76003D175A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		064F4820215C7D76003D175A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +50,11 @@
 		064F4839215CEBD4003D175A /* NSSafeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSafeObject.m; sourceTree = "<group>"; };
 		064F483A215CEBD4003D175A /* NSSafeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSafeObject.h; sourceTree = "<group>"; };
 		064F483C215CEC3E003D175A /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		0659F0C421903D43003AC0FD /* vue.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vue.html; sourceTree = "<group>"; };
+		0659F0C621903D5F003AC0FD /* HtmlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlViewController.swift; sourceTree = "<group>"; };
+		0659F0C821918C3C003AC0FD /* testt.numbers */ = {isa = PBXFileReference; lastKnownFileType = file; path = testt.numbers; sourceTree = "<group>"; };
+		0659F0C9219193CD003AC0FD /* test1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test1.pdf; sourceTree = "<group>"; };
+		0659F0CB21919FE0003AC0FD /* WebPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPreviewViewController.swift; sourceTree = "<group>"; };
 		06670A96215DCD9700CF400C /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		06670AA5215DE38C00CF400C /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		06670AA7215DE56300CF400C /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -108,6 +123,9 @@
 		064F4830215C82FF003D175A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0659F0C421903D43003AC0FD /* vue.html */,
+				0659F0C821918C3C003AC0FD /* testt.numbers */,
+				0659F0C9219193CD003AC0FD /* test1.pdf */,
 				064F4831215C8762003D175A /* 208.MP4 */,
 			);
 			path = Source;
@@ -119,6 +137,7 @@
 				064F4834215C8AEB003D175A /* ConfigHelper.swift */,
 				064F483C215CEC3E003D175A /* BridgeHeader.h */,
 				06670AA7215DE56300CF400C /* ImageHelper.swift */,
+				063E570421807F420057F71F /* BaseViewController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -147,6 +166,10 @@
 				06735C4E216AF5B500C90A5E /* CalendarViewController.swift */,
 				06735C50216B2A2300C90A5E /* Calendar */,
 				069AAE5D217DC48B00650E9F /* IQKeyboardManagerViewController.swift */,
+				063E5706218080A70057F71F /* ScrollViewController.swift */,
+				064B93C321882622002ECD05 /* EurekaViewController.swift */,
+				0659F0C621903D5F003AC0FD /* HtmlViewController.swift */,
+				0659F0CB21919FE0003AC0FD /* WebPreviewViewController.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -238,6 +261,8 @@
 			files = (
 				064F4832215C8762003D175A /* 208.MP4 in Resources */,
 				064F4829215C7D77003D175A /* LaunchScreen.storyboard in Resources */,
+				0659F0CA219193CD003AC0FD /* test1.pdf in Resources */,
+				0659F0C521903D43003AC0FD /* vue.html in Resources */,
 				064F4826215C7D77003D175A /* Assets.xcassets in Resources */,
 				064F4824215C7D76003D175A /* Main.storyboard in Resources */,
 			);
@@ -272,7 +297,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FooAnimation-Master/Pods-FooAnimation-Master-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BarrageRenderer/BarrageRenderer.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/HMSegmentedControl/HMSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework",
@@ -287,7 +314,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarrageRenderer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPhotoBrowser.framework",
@@ -312,13 +341,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				06735C4F216AF5B500C90A5E /* CalendarViewController.swift in Sources */,
+				064B93C421882622002ECD05 /* EurekaViewController.swift in Sources */,
 				06E94D68217591B80097B9DC /* RootTabBarController.swift in Sources */,
 				06E94D6621758F960097B9DC /* MineViewController.swift in Sources */,
 				06670A97215DCD9700CF400C /* HomeCollectionViewCell.swift in Sources */,
 				06670AA6215DE38C00CF400C /* EmitterViewController.swift in Sources */,
+				063E570521807F420057F71F /* BaseViewController.swift in Sources */,
 				064F483B215CEBD4003D175A /* NSSafeObject.m in Sources */,
+				063E5707218080A70057F71F /* ScrollViewController.swift in Sources */,
 				06735C54216B2CA800C90A5E /* CustomCell.swift in Sources */,
+				0659F0CC21919FE0003AC0FD /* WebPreviewViewController.swift in Sources */,
 				064F4821215C7D76003D175A /* ViewController.swift in Sources */,
+				0659F0C721903D5F003AC0FD /* HtmlViewController.swift in Sources */,
 				064F4835215C8AEB003D175A /* ConfigHelper.swift in Sources */,
 				064F481F215C7D76003D175A /* AppDelegate.swift in Sources */,
 				069AAE5E217DC48B00650E9F /* IQKeyboardManagerViewController.swift in Sources */,

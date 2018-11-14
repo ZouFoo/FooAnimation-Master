@@ -14,9 +14,10 @@
 - [x] 支持下滑手势关闭浏览器
 - [x] 支持单击、双击、放大缩小、长按
 - [x] 支持屏幕旋转
+- [x] 支持修改数据源，重载数据
+- [x] 支持代码调用图片切换
 - [x] 支持继承图片浏览器
-- [x] 支持继承页视图Cell
-- [x] 支持自定义Cell注册到浏览器
+- [x] 支持自定义页视图Cell
 - [x] 支持自定义图片加载器
 - [x] 提供了基于`Kingfisher`的图片加载器实现
 - [x] 提供了基于`KingfisherWebP`的WebP图片加载器实现
@@ -24,34 +25,44 @@
 - [x] 提供了数字型的页码指示器的实现
 - [x] 提供了图片加载进度指示器的实现
 - [x] 提供了查看原图按钮的实现
+- [x] 提供了多种数据源代理、视图代理和转场动画代理的实现，自由搭配选用
 - [ ] 理论上支持浏览视频，需自己实现播放功能（待补充示例）
-- [ ] 理论上支持修改数据源（待补充示例）
 
 
 <div>
-	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Snip20181017_1.png" width = "30%" div/>
-	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Snip20181017_2.png" width = "30%" div/>
-	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Snip20181017_3.png" width = "30%" div/>
+	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Home.png" width = "30%" div/>
+	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Transition.png" width = "30%" div/>
+	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Browser.png" width = "30%" div/>
 </div>
 
 # Version History
+
+## Version 2.1.0
+**2018/10/27**
+- 现可通过泛型的方式向三种默认的数据源指定要使用的Cell，并增加一个泛型方法在复用时直接返回所设置的Cell。
+- 支持修改数据源，重载数据
+- 支持代码调用图片切换
+- 对传入的`pageIndex`保护，越界时自动修正为安全值。
+- 可禁止添加长按手势。
+- `JXNetworkingDataSource`和`JXRawImageDataSource`的初始化方法中，`localImage`重命名为`placeholder`，表意更清晰。
+- 删除`JXPhotoBrowserBaseCell`的`setupViews`方法，子类应重写`init(frame: CGRect)`方法，然后作进一步初始化。
 
 ## Version 2.0.x
 **2018/10/18**
 - 重新设计了接口，使用起来更简单易懂。
 - 进行了大规模重构，代码更优雅，更易扩展，更易维护。
-- 注意如果是从1.x版本升级上来的，遇到无法编译情况，请清除Xcode的`Derived Data`
+- 注意如果是从1.x版本升级上来的，遇到无法编译情况，请清除Xcode的`Derived Data`。
 
 ## Version 1.6.1
-1.x版本不再更新功能，若要使用，可参考：[Version_1.x](Version_1.x.md)
+1.x版本不再更新功能，若要使用，可参考：[Version_1.x](Version_1.x.md)。
 
 ## 更多
 查看更多日志：[CHANGELOG](CHANGELOG.md)
 
 # Requirements
 - iOS 9.0
-- Xcode 10
 - Swift 4.2
+- Xcode 10
 
 # Installation
 
@@ -181,7 +192,7 @@ let loader = JXPhotoBrowser.KingfisherLoader()
 // 数据源
 let dataSource = JXNetworkingDataSource(photoLoader: loader, numberOfItems: { () -> Int in
     return self.dataSource.count
-}, localImage: { index -> UIImage? in
+}, placeholder: { index -> UIImage? in
     let cell = collectionView.cellForItem(at: indexPath) as? BaseCollectionViewCell
     return cell?.imageView.image
 }) { index -> String? in
@@ -200,7 +211,7 @@ let loader = JXPhotoBrowser.KingfisherLoader()
 // 数据源
 let dataSource = JXRawImageDataSource(photoLoader: loader, numberOfItems: { () -> Int in
     return self.dataSource.count
-}, localImage: { index -> UIImage? in
+}, placeholder: { index -> UIImage? in
     let cell = collectionView.cellForItem(at: indexPath) as? BaseCollectionViewCell
     return cell?.imageView.image
 }, autoloadURLString: { index -> String? in
@@ -233,7 +244,40 @@ let loader = JXKingfisherWebPLoader()
 let dataSource = JXPhotoBrowser.NetworkingDataSource(photoLoader: loader, ...)
 ```
 
+## 自定义Cell
+如果需要对页视图作更多自定义，可继承`JXPhotoBrowserBaseCell`创建你的Cell。
+然后在创建数据源代理时，通过泛型的方式设置你的Cell：
+```swift
+// 数据源，通过泛型指定使用的<Cell>
+let dataSource = JXNetworkingDataSource<CustomCell>(...)
+// Cell复用回调
+dataSource.configReusableCell { (cell, index) in
+    // 给复用Cell刷新数据
+}
+```
+
+
+## 禁用长按手势
+可通过自定义Cell重写`isNeededLongPressGesture`属性以禁止：
+```swift
+class CustomCell: JXPhotoBrowserBaseCell {
+    /// 是否需要添加长按手势。返回`false`即可避免添加长按手势
+    override var isNeededLongPressGesture: Bool {
+        return false
+    }
+}
+```
+
+
 # 常见问题
+
+## Archive 打包错误
+如果出现：
+```
+While deserializing SIL vtable for ...
+abort trap 6
+```
+请升级你的工程到Swift4.2，即可解决。
 
 ## Install 错误：Error installing libwebp
 谷歌家的`libwebp`是放在他家网上的，`pod 'libwebp'`的源指向了谷歌域名的地址，解决办法一是翻墙，二是把本地 repo 源改为放在 Github 上的镜像：

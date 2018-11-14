@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "295C00F25B2F043F2174DC9E9E2376B6"
+               BlueprintIdentifier = "1B6B4F7FF656B71525FE7570A22B1617"
                BuildableName = "Pods_FooAnimation_Master.framework"
                BlueprintName = "Pods-FooAnimation-Master"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "295C00F25B2F043F2174DC9E9E2376B6"
+            BlueprintIdentifier = "1B6B4F7FF656B71525FE7570A22B1617"
             BuildableName = "Pods_FooAnimation_Master.framework"
             BlueprintName = "Pods-FooAnimation-Master"
             ReferencedContainer = "container:Pods.xcodeproj">

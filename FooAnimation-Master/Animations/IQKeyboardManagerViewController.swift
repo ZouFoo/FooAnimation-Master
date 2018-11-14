@@ -10,6 +10,8 @@ import UIKit
 import IQKeyboardManagerSwift
 import TZImagePickerController
 import SKPhotoBrowser
+import JXPhotoBrowser
+import HMSegmentedControl
 
 class IQKeyboardManagerViewController: UIViewController {
 
@@ -69,6 +71,15 @@ class IQKeyboardManagerViewController: UIViewController {
         return _btn
     }()
     
+    lazy var segmentedControl: HMSegmentedControl = {
+        let segmentedControl = HMSegmentedControl(sectionTitles: ["one","two","three","four","one","two","three","four"])
+        segmentedControl!.frame = CGRect(x: 0, y: (self.view.frame.size.height * 0.6) + 30, width: self.view.frame.size.width, height: 44)
+        
+        
+        
+        return segmentedControl!
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +92,7 @@ class IQKeyboardManagerViewController: UIViewController {
 
         self.view.addSubview(showImage)
         self.view.addSubview(photoBrowserButton)
+        self.view.addSubview(segmentedControl)
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.camera, target: self, action: #selector(selectPhotos))
     
@@ -113,19 +125,59 @@ class IQKeyboardManagerViewController: UIViewController {
     
     @objc func showImages() {
 
-        var images = [SKPhoto]()
-        for index in 1...6{
-            let photo = SKPhoto.photoWithImage(UIImage(named:"s\(index)")!)// add some UIImage
-            images.append(photo)
-        }
+//        SKPhotoBrowser -----------------
+
         
-        // 2. create PhotoBrowser Instance, and present from your viewController.
-        let browser = SKPhotoBrowser(photos: images)
-        browser.initializePageIndex(0)
-        self.present(browser, animated: true, completion: {})
+//        var images = [SKPhoto]()
+//        for index in 1...6{
+//            let photo = SKPhoto.photoWithImage(UIImage(named:"s\(index)")!)// add some UIImage
+//            images.append(photo)
+//        }
+//
+//        // 2. create PhotoBrowser Instance, and present from your viewController.
+//        let browser = SKPhotoBrowser(photos: images)
+//
+//        browser.initializePageIndex(0)
+//        browser.delegate = self
+//        self.present(browser, animated: true, completion: {})
+
+        
+//        JXPhotoBrowser -----------------
+        // 创建图片浏览器
+        
+        
+        let localDataSource = ["s1","s2","s3","s4","s5","s6"]
+        // 数据源
+        let dataSource = JXLocalDataSource(numberOfItems: {
+            // 共有多少项
+            return localDataSource.count
+        }, localImage: { index -> UIImage? in
+            // 每一项的图片对象
+            return UIImage(named: localDataSource[index])
+        })
+        
+        
+
+        // 视图代理，实现了光点型页码指示器
+        let pageDelegate = JXDefaultPageControlDelegate()
+        pageDelegate.longPressedCallback = { browser, index, image, gesture in
+            print("长按")
+        }
+        // 打开浏览器
+//        JXPhotoBrowser(dataSource: dataSource).show(pageIndex: 5)
+        let browser = JXPhotoBrowser(dataSource: dataSource, delegate: pageDelegate)
+        browser.show(pageIndex: 3)
+        
     }
+
     
 }
+
+
+extension IQKeyboardManagerViewController: SKPhotoBrowserDelegate{
+
+}
+
 
 // 图片选择器代理 TZImagePickerControllerDelegate
 extension IQKeyboardManagerViewController: TZImagePickerControllerDelegate{

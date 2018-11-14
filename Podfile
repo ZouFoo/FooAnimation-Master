@@ -15,8 +15,9 @@ target 'FooAnimation-Master' do
   pod 'RSKImageCropper'
   pod 'SDWebImage'
   pod 'JXPhotoBrowser'
-
-
+  pod 'Eureka'
+  pod 'HMSegmentedControl'
+  
 end
 
 

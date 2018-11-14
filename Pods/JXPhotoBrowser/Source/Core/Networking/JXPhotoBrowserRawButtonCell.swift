@@ -32,11 +32,15 @@ open class JXPhotoBrowserRawButtonCell: JXPhotoBrowserNetworkingCell {
     public var photoLoader: JXPhotoLoader?
     
     /// 初始化
-    open override func setupViews() {
-        super.setupViews()
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         rawButton.addTarget(self, action: #selector(onRawImageButton), for: .touchUpInside)
         rawButton.isHidden = true
         contentView.addSubview(rawButton)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     /// 布局
@@ -50,7 +54,7 @@ open class JXPhotoBrowserRawButtonCell: JXPhotoBrowserNetworkingCell {
     
     /// 刷新数据
     open func reloadData(photoLoader: JXPhotoLoader,
-                         localImage: UIImage?,
+                         placeholder: UIImage?,
                          autoloadURLString: String?,
                          rawURLString: String?) {
         // 重置环境
@@ -63,7 +67,7 @@ open class JXPhotoBrowserRawButtonCell: JXPhotoBrowserNetworkingCell {
         // url是否有效
         guard let urlString = rawURLString, let url = URL(string: urlString) else {
             // 降级到加载高清图
-            super.reloadData(photoLoader: photoLoader, localImage: localImage, autoloadURLString: autoloadURLString)
+            super.reloadData(photoLoader: photoLoader, placeholder: placeholder, autoloadURLString: autoloadURLString)
             return
         }
         // 如果有原图缓存，则显示原图
@@ -78,7 +82,7 @@ open class JXPhotoBrowserRawButtonCell: JXPhotoBrowserNetworkingCell {
             // 否则加载高清图
         else {
             rawButton.isHidden = false
-            super.reloadData(photoLoader: photoLoader, localImage: localImage, autoloadURLString: autoloadURLString)
+            super.reloadData(photoLoader: photoLoader, placeholder: placeholder, autoloadURLString: autoloadURLString)
         }
     }
     

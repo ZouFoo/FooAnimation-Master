@@ -8,6 +8,7 @@
 
 import UIKit
 import pop
+import QuickLook
 
 class RootTabBarController: UITabBarController {
 
@@ -29,10 +30,6 @@ class RootTabBarController: UITabBarController {
         
         
         //自定义按钮
-//        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake((self.view.frame.size.width-40)/2, 5, 40, 40)];
-//        [btn setImage:[UIImage imageNamed:@"tabbar_add"] forState:UIControlStateNormal];
-//        [btn addTarget:self action:@selector(tabBarDidClickPlusButton) forControlEvents:UIControlEventTouchUpInside];
-//        [self.tabBar addSubview:btn];
         let centerButton = UIButton(frame: CGRect(x: (self.view.frame.width - 40)/2, y: 5, width: 40, height: 40))
         centerButton.setImage(UIImage(named: "setting"), for: .normal)
         centerButton.addTarget(self, action: #selector(didtouchBarButton), for: .touchUpInside)
@@ -69,14 +66,18 @@ class RootTabBarController: UITabBarController {
         
         let actionButton = UIButton(frame: CGRect(x: 100, y: -50, width: 50, height: 50))
         actionButton.backgroundColor = .blue
+        actionButton.addTarget(self, action: #selector(presentHtml), for: .touchUpInside)
         self.baseView?.addSubview(actionButton)
+        
         
         let actionButton2 = UIButton(frame: CGRect(x: 200, y: -50, width: 50, height: 50))
         actionButton2.backgroundColor = .red
+        actionButton2.addTarget(self, action: #selector(priview), for: .touchUpInside)
         self.baseView?.addSubview(actionButton2)
         
         let actionButton3 = UIButton(frame: CGRect(x: 300, y: -50, width: 50, height: 50))
         actionButton3.backgroundColor = .green
+        actionButton3.addTarget(self, action: #selector(webPriview), for: .touchUpInside)
         self.baseView?.addSubview(actionButton3)
         
         let anim = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
@@ -100,12 +101,81 @@ class RootTabBarController: UITabBarController {
 
         
         
-
-        
-        
     }
     
     @objc func removeView() {
         self.baseView?.removeFromSuperview()
     }
+    
+    @objc func presentHtml() {
+        var vc = UIApplication.shared.keyWindow?.rootViewController
+
+        if (vc?.isKind(of: UITabBarController.self))! {
+            vc = (vc as! UITabBarController).selectedViewController
+        }else if (vc?.isKind(of: UINavigationController.self))!{
+            vc = (vc as! UINavigationController).visibleViewController
+        }else if ((vc?.presentedViewController) != nil){
+            vc =  vc?.presentedViewController
+        }
+        removeView()
+        vc?.present(HtmlViewController(), animated: true, completion: nil)
+
+    }
+    
+    @objc func priview() {
+        let previewController = QLPreviewController()
+        //设置数据源
+        previewController.dataSource = self
+        previewController.delegate = self
+        
+        previewController.hidesBottomBarWhenPushed = true
+        previewController.currentPreviewItemIndex = 1;
+        
+        
+        var vc = UIApplication.shared.keyWindow?.rootViewController
+        
+        if (vc?.isKind(of: UITabBarController.self))! {
+            vc = (vc as! UITabBarController).selectedViewController
+        }else if (vc?.isKind(of: UINavigationController.self))!{
+            vc = (vc as! UINavigationController).visibleViewController
+        }else if ((vc?.presentedViewController) != nil){
+            vc =  vc?.presentedViewController
+        }
+        removeView()
+        vc?.present(previewController, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    @objc func webPriview() {
+        var vc = UIApplication.shared.keyWindow?.rootViewController
+        
+        if (vc?.isKind(of: UITabBarController.self))! {
+            vc = (vc as! UITabBarController).selectedViewController
+        }else if (vc?.isKind(of: UINavigationController.self))!{
+            vc = (vc as! UINavigationController).visibleViewController
+        }else if ((vc?.presentedViewController) != nil){
+            vc =  vc?.presentedViewController
+        }
+        removeView()
+        vc?.present(WebPreviewViewController(), animated: true, completion: nil)
+        
+        
+    }
 }
+
+
+extension RootTabBarController: QLPreviewControllerDelegate, QLPreviewControllerDataSource{
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return 1
+    }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        let filePath = Bundle.main.path(forResource: "test1", ofType: "pdf")
+        return URL(fileURLWithPath: filePath!) as QLPreviewItem
+    }
+    
+    
+}
+

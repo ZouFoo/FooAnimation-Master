@@ -65,7 +65,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     
     func initDanmuText() {
-        danmuText += ["滴滴：一直严禁员工私下交易期权，从未有过明确的上市时间表","滴滴对投资人开始转让原始股的消息做出回应。","9月27日，有报道称，从2018年年初到现在，滴滴D轮以后投资人开始转让滴滴的原始股，而接盘方系滴滴的投资方软银中国资本。","该报道还称， 滴滴核心团队及部分早期员工，正在按照接近26美元／股转让期权，价格略高于原有价格。","自从加盟火箭之后，戈登一直打第六人，而且成为过最佳第六人。","上赛季，火箭尝试让戈登和哈登、保罗一起搭档并组成三后卫阵容，而且取得不错的效果。","数据显示：上赛季常规赛，戈登、哈登和保罗一起搭档了150分钟，进攻效率是惊人的每100回合得到134.7分，防守效率也还可以（每100回合丢105.8分）。","据著名NBA记者蒂姆-迈克马洪报道，火箭队倾向于在下赛季让最佳第六人埃里克-戈登进入首发阵容并和哈登、保罗搭档。","今年夏天，安东尼加盟火箭，而且他在媒体日上承认自己不介意打替补。","如果是这样的话，火箭的板凳得分能由安东尼来填补。"]
+        danmuText += ["滴滴：一直严禁员工私下交易期权","从未有过明确的上市时间表","滴滴对投资人开始转让原始股的消息做出回应。","9月27日，有报道称","从2018年年初到现在，滴滴D轮以后投资人开始转让滴滴的原始股","而接盘方系滴滴的投资方软银中国资本。","该报道还称， 滴滴核心团队及部分早期员工","正在按照接近26美元／股转让期权，价格略高于原有价格。"]
     }
     
     lazy var collectionView: UICollectionView = {
@@ -90,7 +90,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     
     func initdatas() {
-        animations += ["日历calendar","Emitter粒子动画","IQKeyboardManager","s4","s5","s6"]
+        animations += ["日历calendar","Emitter粒子动画","IQKeyboardManager","ScrollLayout","Eureka表单","s6"]
         animationImages += ["s1","s2","s3","s4","s5","s6"]
     }
     
@@ -206,6 +206,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.navigationController?.pushViewController(EmitterViewController(), animated: true)
         case 2:
             self.navigationController?.pushViewController(IQKeyboardManagerViewController(), animated: true)
+        case 3:
+            let vc = ScrollViewController.shared
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 4:
+            self.navigationController?.pushViewController(EurekaViewController(), animated: true)
         default: break
             
         }

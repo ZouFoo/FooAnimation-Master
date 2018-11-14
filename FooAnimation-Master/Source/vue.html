@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例</title>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<!-- 引入 Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div class="container">
+	<div class="col-md-6 col-md-offset-3" id="app">
+	<H1>Hello Foo</H1>
+	 	<table class="table table-hover  table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>商品名</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>小计</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="good, index in goods">
+					<td>{{index + 1}}</td>
+					<td>{{good.name}}</td>
+					<td>{{good.price}}</td>
+					<td>{{good.count}}</td>
+					<td>{{good.price * good.count}}</td>
+					<td class="text-center">
+                            <button type="button" class="btn btn-success" v-on:click="delGood(index)">删除</button>
+                    </td>
+                </tr>
+				<tr>
+                    <td class="text-right" colspan="6">
+                      <h4>总价：{{sum}}</h4>
+                    </td>
+                  </tr>
+			</tbody>
+		</table>
+		<legend>添加商品</legend>
+		<div class="form-group">
+			<label>商品名</label>
+			<input type="text" class="col-md-12" placeholder="商品名" v-model="good.name">
+		</div>
+		<div class="form-group">
+			<label>单价</label>
+			<input type="text" class="col-md-12"  v-model="good.price">
+		</div>
+		<div class="form-group">
+			<label>数量</label>
+			<input type="text" class="col-md-12"  v-model="good.count">
+		</div>
+		<br/>
+		<button type="submit" class="btn btn-primary col-md-12" v-on:click="addGood()">添加</button>
+	</div>
+</div>
+
+<script>
+// 创建根实例
+var app = new Vue({
+  el: '#app',
+  data: {
+  	good:{
+      	name:'',
+      	price:0,
+      	count:0,
+      	action:'action'
+    	},
+  	goods: [
+  		{
+  		name:'ipad',
+		price:3288,
+		count: 2,
+		action: "action"},
+		{
+		name:'mac mini',
+		price:6988,
+		count: 1,
+		action: "action"},
+		{
+		name:'iphone',
+		price: 10999,
+		count: 2,
+		action: "action"}]
+  		},
+  	methods: {
+  		addGood: function() {
+  			this.good.id = this.goods.length +1;
+  			this.goods.push(this.good);
+            window.webkit.messageHandlers.interOp.postMessage(JSON.stringify(this.good))
+            this.good = {};
+                  
+                  
+  		},
+  		delGood: function(index) {
+  			this.goods.splice(index,1)
+  		}
+  	},
+  	computed:{
+    sum:function(){
+      var result = 0;
+      for (var i=0;i<this.goods.length;i++){
+        result += Number(this.goods[i].price * this.goods[i].count)
+      };
+      return result;
+  	}
+  },
+})
+ 
+
+function changeHead(name,price,count){
+<!--    document.querySelector('h1').style.color = "red"-->
+    app.good.id = app.goods.length +1;
+    app.good.name = name;
+    app.good.price = parseInt(price);
+    app.good.count = parseInt(count);
+    app.goods.push(app.good)
+    app.good = {}
+}
+
+</script>
+</body>
+</html>

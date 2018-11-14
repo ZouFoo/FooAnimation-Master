@@ -11,12 +11,18 @@ import UIKit
 /// 可展示两级资源。比如首先展示模糊的图片，然后展示清晰的图片
 open class JXPhotoBrowserNetworkingCell: JXPhotoBrowserBaseCell {
     
+    /// 进度环
     public let progressView = JXPhotoBrowserProgressView()
     
     /// 初始化
-    open override func setupViews() {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         progressView.isHidden = true
         contentView.addSubview(progressView)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     /// 布局
@@ -27,20 +33,20 @@ open class JXPhotoBrowserNetworkingCell: JXPhotoBrowserBaseCell {
     
     /// 刷新数据
     open func reloadData(photoLoader: JXPhotoLoader,
-                         localImage: UIImage?,
+                         placeholder: UIImage?,
                          autoloadURLString: String?) {
         // 重置环境
         progressView.isHidden = true
         progressView.progress = 0
         // url是否有效
         guard let urlString = autoloadURLString,let url = URL(string: urlString) else {
-            imageView.image = localImage
+            imageView.image = placeholder
             setNeedsLayout()
             return
         }
         // 取缓存
         let image = photoLoader.imageCached(on: imageView, url: url)
-        let placeholder = image ?? localImage
+        let placeholder = image ?? placeholder
         // 加载
         photoLoader.setImage(on: imageView, url: url, placeholder: placeholder, progressBlock: { receivedSize, totalSize in
             if totalSize > 0 {

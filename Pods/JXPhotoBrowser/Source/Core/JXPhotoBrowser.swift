@@ -8,7 +8,7 @@
 import UIKit
 
 open class JXPhotoBrowser: UIViewController {
-
+    
     //
     // MARK: - Public Properties
     //
@@ -42,14 +42,14 @@ open class JXPhotoBrowser: UIViewController {
     open var isPreviewing = false
     
     /// 流型布局
-    public lazy var flowLayout: UICollectionViewFlowLayout = {
+    open lazy var flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         return layout
     }()
     
     /// 容器
-    public lazy var collectionView: UICollectionView = {
+    open lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.clear
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -58,7 +58,7 @@ open class JXPhotoBrowser: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.alwaysBounceVertical = false
         return collectionView
-        }()
+    }()
     
     //
     // MARK: - Life Cycle
@@ -85,7 +85,7 @@ open class JXPhotoBrowser: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = transDelegate
-
+        
         dataSource.browser = self
         delegate.browser = self
         transDelegate.browser = self
@@ -98,11 +98,13 @@ open class JXPhotoBrowser: UIViewController {
     /// 打开浏览器
     open func show(pageIndex: Int) {
         self.pageIndex = pageIndex
-         UIViewController.jx.topMost?.present(self, animated: true, completion: nil)
+        UIViewController.jx.topMost?.present(self, animated: true, completion: nil)
     }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        self.extendedLayoutIncludesOpaqueBars = true
+        self.automaticallyAdjustsScrollViewInsets = false
         view.addSubview(collectionView)
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
@@ -181,18 +183,36 @@ open class JXPhotoBrowser: UIViewController {
     /// 滑到哪张图片
     /// - parameter index: 图片序号，从0开始
     open func scrollToItem(_ index: Int, at position: UICollectionView.ScrollPosition, animated: Bool) {
-        pageIndex = index
-        let indexPath = IndexPath(item: index, section: 0)
+        var safeIndex = max(0, index)
+        safeIndex = min(itemsCount - 1, safeIndex)
+        let indexPath = IndexPath(item: safeIndex, section: 0)
         collectionView.scrollToItem(at: indexPath, at: position, animated: animated)
     }
     
     /// 取当前显示页的内容视图。比如是 ImageView.
-    public var displayingContentView: UIView? {
+    open var displayingContentView: UIView? {
         return delegate.displayingContentView(self, pageIndex: pageIndex)
     }
     
     /// 取转场动画视图
-    public var transitionZoomView: UIView? {
+    open var transitionZoomView: UIView? {
         return delegate.transitionZoomView(self, pageIndex: pageIndex)
+    }
+    
+    /// 取项数
+    open var itemsCount: Int {
+        return dataSource.collectionView(collectionView, numberOfItemsInSection: 0)
+    }
+    
+    /// 刷新数据
+    open func reloadData() {
+        let numberOfItems = itemsCount
+        guard numberOfItems > 0 else {
+            delegate.dismissPhotoBrowser(self)
+            return
+        }
+        pageIndex = min(pageIndex, numberOfItems - 1)
+        collectionView.reloadData()
+        delegate.photoBrowserDidReloadData(self)
     }
 }
